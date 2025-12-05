@@ -1,0 +1,112 @@
+#include <iostream>
+#include <cstdlib>  // rand, srand
+#include <ctime>    // time
+
+using namespace std;
+
+const int N = 5;
+const int MINES = 5;
+
+char board[N][N];       // gösterilen tablo (#, sayı, X)
+bool mines[N][N];       // mayın yerleri (true/false)
+
+bool inBounds(int r, int c) {
+    return r >= 0 && r < N && c >= 0 && c < N;
+}
+
+// çevredeki mayın sayısını hesapla
+int countMines(int r, int c) {
+    int count = 0;
+    for (int dr = -1; dr <= 1; dr++) {
+        for (int dc = -1; dc <= 1; dc++) {
+            int nr = r + dr;
+            int nc = c + dc;
+            if (inBounds(nr, nc) && mines[nr][nc]) count++;
+        }
+    }
+    return count;
+}
+
+void printBoard(bool showMines = false) {
+    cout << "\n   1 2 3 4 5\n";
+    cout << "  -----------\n";
+    for (int i = 0; i < N; i++) {
+        cout << i + 1 << " | ";
+        for (int j = 0; j < N; j++) {
+            if (showMines && mines[i][j])
+                cout << "* ";
+            else
+                cout << board[i][j] << ' ';
+        }
+        cout << '\n';
+    }
+}
+
+int main() {
+    srand(time(0));
+
+    // Başlangıçta tüm hücreler kapalı (#)
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++) {
+            board[i][j] = '#';
+            mines[i][j] = false;
+        }
+
+    // Rasgele mayın yerleştir
+    int placed = 0;
+    while (placed < MINES) {
+        int r = rand() % N;
+        int c = rand() % N;
+        if (!mines[r][c]) {
+            mines[r][c] = true;
+            placed++;
+        }
+    }
+
+    cout << "=== Basit Mayin Tarlasi (5x5) ===\n";
+    cout << "Mayina basmadan hucreleri acmaya calis!\n";
+    cout << "Satir ve sutun numarasini gir (1-5).\n";
+
+    int opened = 0;
+    int safeCells = N * N - MINES;
+
+    while (true) {
+        printBoard();
+
+        int row, col;
+        cout << "\nSatir: ";
+        cin >> row;
+        cout << "Sutun: ";
+        cin >> col;
+        row--; col--;
+
+        if (!inBounds(row, col)) {
+            cout << "Gecersiz konum! (1-5 arasi gir)\n";
+            continue;
+        }
+
+        if (board[row][col] != '#') {
+            cout << "Bu hucre zaten acildi!\n";
+            continue;
+        }
+
+        if (mines[row][col]) {
+            cout << "\n💥 Mayina bastin! Oyun bitti.\n";
+            printBoard(true);
+            break;
+        } else {
+            int count = countMines(row, col);
+            board[row][col] = '0' + count;
+            opened++;
+        }
+
+        if (opened == safeCells) {
+            cout << "\n🎉 Tebrikler! Tum guvenli hucreleri actin!\n";
+            printBoard(true);
+            break;
+        }
+    }
+
+    cout << "\nOyun bitti. Tesekkurler!\n";
+    return 0;
+}
