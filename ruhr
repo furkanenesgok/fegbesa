@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+class drone {
+
+private:
+    drone(int yuk,  int yukseklik, int hiz) {
+    yuk = y;
+    hiz = h;
+    yukseklik = yk;
+    pil = p;
+    cout << "drone oluşturuldu." << endl;
+
+
+    }
