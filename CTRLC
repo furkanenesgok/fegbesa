@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+void bes_kontrol_simple(int sayi) {
+    int kalan = sayi % 5;
+    if (kalan == 0)
+        cout << "tam bolunur." << endl;
+    else
+        cout << kalan << endl;
+}
+
+int main() {
+    bes_kontrol_simple(25); // çıktısı: tam bölünür.
+    bes_kontrol_simple(22); // çıktısı: 2
+}
