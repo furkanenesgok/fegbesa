@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+// Fonksiyon: beğeni sayılarının toplamını döndürür
+int toplamBegeni(int begeniler[], int n) {
+    int toplam = 0;
+    for (int i = 0; i < n; i++) {
+        toplam += begeniler[i];
+    }
+    return toplam;
+}
+
+int main() {
+    // Örnek beğeni sayıları dizisi
+    int begeniler[] = {120, 85, 97, 200, 150};
+    int n = 5;
+
+    int sonuc = toplamBegeni(begeniler, n);
+
+    cout << "Toplam begeni sayisi: " << sonuc << endl;
+
+    return 0;
+}
