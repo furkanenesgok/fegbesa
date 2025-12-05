@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Okul numaralarinin oldugu bir liste (dizi)
+    int okulNumaralari[] = {17, 29, 44, 65, 78, 40, 53, 12 ,34, 45 ,67};
+
+    // Aradigimiz ogrencinin numarasi
+    int arananNumara = 78;
+
+    // Dongu ile listedeki numaralari bastan sona kontrol et
+    for (int  i = 0; i < 8; ++i) {
+        // Eger aranan numara, listenin o anki elemanina esitse
+        if (okulNumaralari[i] == arananNumara) {
+            // Ekrana numaranin bulundugunu ve adresini (indisini) yazdir
+            cout << arananNumara << " bulundu! Konumu (indeksi): " << i << endl;
+        }
+    }
+    return 0;
+}
