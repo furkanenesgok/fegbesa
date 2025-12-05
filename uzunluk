@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// Üçgen alanı hesaplayan yardımcı fonksiyon
+double ucgen_alani(double taban, double yukseklik) {
+    return (taban * yukseklik) / 2.0;
+}
+
+// Dikdörtgene kaç üçgen sığar hesaplayan fonksiyon
+int ucgen_sayisi(double dikdortgen_uzunluk, double dikdortgen_genislik, double ucgen_taban, double ucgen_yukseklik) {
+    double dikdortgen_alani = dikdortgen_uzunluk * dikdortgen_genislik;
+    double bir_ucgen_alani = ucgen_alani(ucgen_taban, ucgen_yukseklik);
+
+    // Kaç üçgen sığabileceğini hesapla
+    int sayi = dikdortgen_alani / bir_ucgen_alani;
+    return sayi;
+}
+
+int main() {
+    double d_uzunluk = 20, d_genislik = 10;
+    double u_taban = 5, u_yukseklik = 4;
+
+    cout << "Dikdörtgen alani: " << d_uzunluk * d_genislik << endl;
+    cout << "Bir ucgen alani: " << ucgen_alani(u_taban, u_yukseklik) << endl;
+    cout << "Dikdörtgene sigabilecek ucgen sayisi: "
+         << ucgen_sayisi(d_uzunluk, d_genislik, u_taban, u_yukseklik) << endl;
+
+    return 0;
+}
