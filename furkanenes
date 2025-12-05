@@ -1,0 +1,55 @@
+cout << f4.adi_soyadi << " " << f10.forma_no << " " <<f10.gol_sayisi << "\n";
+class futbolcu{
+  public:
+          string adi_soyadi;
+          int forma_no;
+          int gol_sayisi;
+
+     futbolcu(string x_adi_soyadi,int x_forma_no,int x_gol_sayisi)
+     {
+
+     adi_soyadi = x_adi_soyadi;
+     forma_no = x_forma_no;
+     gol_sayisi = x_gol_sayisi;
+
+
+
+
+     }
+
+
+};
+
+int main(){
+
+     futbolcu f1("arda guler,21,14");
+     futbolcu f2("musa seyidoglu,21,14");
+     futbolcu f3("arda gulmez,21,14");
+     futbolcu f4("arda naber,21,14");
+     futbolcu f5("mehmet efe,21,14");
+     futbolcu f6("eymen efe,21,14");
+     futbolcu f7("umut,21,14");
+     futbolcu f8("gorkem,21,14");
+     futbolcu f9("berat,21,14");
+     futbolcu f10(" guler,21,14");
+     futbolcu f11("tarık,21,14");
+
+    cout << f1.adi_soyadi << " " << f1.forma_no << " " <<f1.gol_sayisi << "\n";
+    cout << f2.adi_soyadi << " " << f2.forma_no << " " <<f2.gol_sayisi << "\n";
+    cout << f3.adi_soyadi << " " << f3.forma_no << " " <<f3.gol_sayisi << "\n";
+    cout << f4.adi_soyadi << " " << f4.forma_no << " " <<f4.gol_sayisi << "\n";
+    cout << f5.adi_soyadi << " " << f5.forma_no << " " <<f5.gol_sayisi << "\n";
+    cout << f6.adi_soyadi << " " << f6.forma_no << " " <<f6.gol_sayisi << "\n";
+    cout << f7.adi_soyadi << " " << f7.forma_no << " " <<f7.gol_sayisi << "\n";
+    cout << f8.adi_soyadi << " " << f8.forma_no << " " <<f8.gol_sayisi << "\n";
+    cout << f9.adi_soyadi << " " << f9.forma_no << " " <<f9.gol_sayisi << "\n";
+    cout << f10.adi_soyadi << " " << f10.forma_no << " " <<f10.gol_sayisi << "\n";
+    cout << f11.adi_soyadi << " " << f11.forma_no << " " <<f11.gol_sayisi << "\n";
+
+    return 0;
+
+
+
+
+
+}
