@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+using namespace std;
+ class nokta{
+  int x,y;
+  public:
+  void git(int, int);
+  void goster();
+  void sifir_mi();
+
+
+};
+void nokta::git(int yeni_x,int yeni_y)
+{
+    x = yeni_x;
+    y = yeni_y;
+}
+void nokta::goster()
+{
+    cout <<"n1 suanda sifir noktasindadir")
+}
